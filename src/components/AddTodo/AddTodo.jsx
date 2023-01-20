@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export default function AddTodo({ onAdd }) {
   const [text, setText] = useState("");
@@ -10,7 +11,7 @@ export default function AddTodo({ onAdd }) {
       setText("");
       return;
     }
-    onAdd({ id: "고유한값", text, status: "active" });
+    onAdd({ id: uuidv4(), text, status: "active" });
     setText("");
   };
   return (
